@@ -16,8 +16,7 @@ class Cloudviz < Formula
   end
 
   def install
-    # The tar extracts to cloudviz/ directory with binary and dist/ inside
-    bin.install Dir["cloudviz/cloudviz"].first => "cloudviz"
+    bin.install "cloudviz/cloudviz" => "cloudviz"
   end
 
   def post_install
