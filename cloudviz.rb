@@ -9,8 +9,7 @@ class Cloudviz < Formula
   bottle :unneeded
 
   def install
-    prefix.install Dir["cloudviz/cloudviz"]
-    bin.install_symlink prefix/"cloudviz/cloudviz" => "cloudviz"
+    bin.install "cloudviz"
   end
 
   test do
