@@ -16,7 +16,7 @@ class Cloudviz < Formula
   end
 
   def install
-    system "tar xzf #{cached_download} -C #{prefix}"
+    system "/bin/bash", "-c", "tar xzf #{cached_download} -C #{prefix}"
     FileUtils.chmod 0555, "#{prefix}/cloudviz/cloudviz"
     (bin/"cloudviz").make_symlink "#{prefix}/cloudviz/cloudviz"
   end
