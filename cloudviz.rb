@@ -3,28 +3,14 @@ class Cloudviz < Formula
   homepage "https://github.com/aavishay/cloudviz"
   license "MIT"
   version "0.3.0"
+  sha256 "e948180002497cd4f1b614b2cafc23a67cfb676ddd4a199af324af3861bf3047"
 
-  on_macos do
-    on_arm do
-      url "https://github.com/aavishay/cloudviz/releases/download/v0.3.0/cloudviz_0.3.0_darwin_arm64.tar.gz"
-      sha256 "e948180002497cd4f1b614b2cafc23a67cfb676ddd4a199af324af3861bf3047"
-    end
-    on_intel do
-      url "https://github.com/aavishay/cloudviz/releases/download/v0.3.0/cloudviz_0.3.0_darwin_amd64.tar.gz"
-      sha256 "50087e8a2067f46ffee1c6b0235d336f46894b37fc01f6f28272c1710469945b"
-    end
-  end
+  url "https://github.com/aavishay/cloudviz/releases/download/v0.3.0/cloudviz_0.3.0_darwin_arm64.tar.gz"
+  bottle :unneeded
 
   def install
-    system "/bin/bash", "-c", "tar xzf #{cached_download} -C #{prefix}"
-    FileUtils.chmod 0555, "#{prefix}/cloudviz/cloudviz"
-    (bin/"cloudviz").make_symlink "#{prefix}/cloudviz/cloudviz"
-  end
-
-  def post_install
-    puts "CloudViz installed!"
-    puts "Run 'cloudviz serve' to start the server."
-    puts "Run 'cloudviz --help' for all available commands."
+    prefix.install Dir["cloudviz/cloudviz"]
+    bin.install_symlink prefix/"cloudviz/cloudviz" => "cloudviz"
   end
 
   test do
