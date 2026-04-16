@@ -23,7 +23,7 @@ class Cloudviz < Formula
   end
 
   def install
-    bin.install "cloudviz"
+    bin.install "cloudviz_#{version}_#{OS.kernel_name.downcase}_#{Hardware::CPU.arch.to_s.gsub(/x86_64/, "amd64")}" => "cloudviz"
   end
 
   def post_install
