@@ -3,12 +3,33 @@ class Cloudviz < Formula
   homepage "https://github.com/aavishay/cloudviz"
   license "MIT"
   version "0.8.0"
-  sha256 "6b138f16ebf4a2a2a6b8f7759de0dc75fd59f6b7c40b2ef4ddbe2fde0295c2e1"
 
-  url "https://github.com/aavishay/cloudviz/releases/download/v0.8.0/cloudviz_0.8.0_darwin_arm64.tar.gz"
+  on_macos do
+    on_arm do
+      url "https://github.com/aavishay/cloudviz/releases/download/v#{version}/cloudviz_#{version}_darwin_arm64.tar.gz"
+      sha256 "ce052c5d6b120afb918990d6523d306a25ae2019251a7a7274764cf16013c24a"
+    end
+    on_intel do
+      url "https://github.com/aavishay/cloudviz/releases/download/v#{version}/cloudviz_#{version}_darwin_amd64.tar.gz"
+      sha256 "0cfc609fffecd19bc210570d3416e75041874bdbc8ed83c1d9f1f68a3d327e4b"
+    end
+  end
+
+  on_linux do
+    on_intel do
+      url "https://github.com/aavishay/cloudviz/releases/download/v#{version}/cloudviz_#{version}_linux_amd64.tar.gz"
+      sha256 "079cfd08b7e9ba038322008070f931dfe79bad572511e2edb0b529040c803619"
+    end
+  end
 
   def install
     bin.install "cloudviz"
+  end
+
+  def post_install
+    puts "CloudViz installed!"
+    puts "Run 'cloudviz serve' to start the server."
+    puts "Run 'cloudviz --help' for all available commands."
   end
 
   test do
