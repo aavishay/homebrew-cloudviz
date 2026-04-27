@@ -23,8 +23,7 @@ class Cloudviz < Formula
   end
 
   def install
-    prefix.install "cloudviz"
-    bin.install_symlink prefix/"cloudviz/cloudviz"
+    bin.install "cloudviz/cloudviz" => "cloudviz"
   end
 
   def post_install
