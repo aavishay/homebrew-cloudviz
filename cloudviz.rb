@@ -23,7 +23,7 @@ class Cloudviz < Formula
   end
 
   def install
-    bin.install "cloudviz/cloudviz" => "cloudviz"
+    bin.install Dir["cloudviz/cloudviz"].first => "cloudviz"
   end
 
   def post_install
