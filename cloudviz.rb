@@ -13,7 +13,7 @@ class Cloudviz < Formula
 
   stable do
     url "https://github.com/aavishay/cloudviz/archive/refs/tags/v#{version}.tar.gz"
-    sha256 :no_check
+    sha256 "873aac3e48814e265c850ddda7508484e055d0496837cba85860a56521f536bc"
   end
 
   def install
