@@ -2,7 +2,7 @@ class Cloudviz < Formula
   desc "Azure cloud infrastructure visualization and cost management dashboard"
   homepage "https://github.com/aavishay/cloudviz"
   license "MIT"
-  version "1.4.0"
+  version "1.5.0"
 
   depends_on "go" => :build
   depends_on "node" => :build
@@ -13,7 +13,7 @@ class Cloudviz < Formula
 
   stable do
     url "https://github.com/aavishay/cloudviz/archive/refs/tags/v#{version}.tar.gz"
-    sha256 "873aac3e48814e265c850ddda7508484e055d0496837cba85860a56521f536bc"
+    sha256 "17a397f0e77c619ff1874ad669b7eb60611b21493009594486ede2f8021364a2"
   end
 
   def install
